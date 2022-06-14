@@ -18,6 +18,8 @@ Simple subscription application for multi tenants
 - Enable mail credentials in ``.env``.
 - Run ``php artisan migrate`` and ``php artisan db:seed`` to seed database
 
+## API Docuentation
+https://documenter.getpostman.com/view/15372560/UzBiNTWc
 
 ## License
 
