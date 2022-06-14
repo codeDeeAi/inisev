@@ -15,6 +15,9 @@ class CreateTenantPostsTable extends Migration
     {
         Schema::create('tenant_posts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tenant_id');
+            $table->string('title');
+            $table->text('post');
             $table->timestamps();
         });
     }
