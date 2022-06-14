@@ -18,6 +18,11 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+
+        // This send quick emails to user groups
+        'App\Events\MailUsersEvent' => [
+            'App\Listeners\MailUsersEventListener',
+        ],
     ];
 
     /**

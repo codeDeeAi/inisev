@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MailUsersEvent;
 use App\Models\Tenant;
 use App\Models\TenantPost;
 use Illuminate\Http\Request;
@@ -20,11 +21,14 @@ class TenantPostController extends Controller
         if (Tenant::where('id', $tenant)->exists()) {
 
             ## Create new tenant post
-            TenantPost::create([
+            $post = TenantPost::create([
                 'title' => $request->title,
                 'post' => $request->post,
                 'tenant_id' => $tenant
             ]);
+
+            ## Dispatch event
+            MailUsersEvent::dispatch($tenant, $post->title, $post->post);
 
             ## Response
             return response()->json(['message' => 'Post created successfully !'], 201);
