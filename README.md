@@ -18,7 +18,7 @@ Simple subscription application for multi tenants
 - Enable Database queue ``QUEUE_CONNECTION=database`` in ``.env``.
 - Enable mail credentials in ``.env``.
 - Run ``php artisan migrate`` and ``php artisan db:seed`` to seed database
-- To send email via command line use ``php artisan email:users {tenant_id} {title} {post}``
+- To send email via command line use ``php artisan email:users {tenant_id} {title} {post}`` or run ``php artisan --help email:users`` to learn more about the command.
 
 ## API Docuentation
 https://documenter.getpostman.com/view/15372560/UzBiNTWc
