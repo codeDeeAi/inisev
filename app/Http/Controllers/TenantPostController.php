@@ -22,7 +22,8 @@ class TenantPostController extends Controller
             ## Create new tenant post
             TenantPost::create([
                 'title' => $request->title,
-                'post' => $request->post
+                'post' => $request->post,
+                'tenant_id' => $tenant
             ]);
 
             ## Response

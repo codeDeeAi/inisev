@@ -13,14 +13,15 @@ class TenantUserController extends Controller
     {
         # Validation
         $this->validate($request, [
-            'email' => 'required|email|unique:tenant_users,email,except,id'
+            'email' => 'required|email|unique:users,email,except,id'
         ]);
 
         if (Tenant::where('id', $tenant)->exists()) {
 
             ## Create new tenant
             User::create([
-                'email' => $request->email
+                'email' => $request->email,
+                'tenant_id' => $tenant
             ]);
 
             ## Response
